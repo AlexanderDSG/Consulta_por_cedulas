@@ -22,13 +22,25 @@ namespace Consulta_por_cedulas.Controllers
             return View(olista);
         }
 
-        
 
+        private bool ValidaIP()
+        {
+            // obtiene la dirección IP del cliente que realizo la solicitud
+            string ipAddress = Request.UserHostAddress;
+
+            // valida la direccion IP
+            return IPAddress.TryParse(ipAddress, out _);
+        }
         [HttpPost]
         public ActionResult Consulta(string cedula)
         {
-           
 
+            // verifica si la dirección IP del cliente es valida
+            if (!ValidaIP())
+            {
+                TempData["Mensaje"] = "Dirección IP no válida.";
+                return RedirectToAction("Index");
+            }
             // Verificar si se ingresó una cédula válida
             if (!string.IsNullOrEmpty(cedula) && cedula.Length <= 10)
             {
