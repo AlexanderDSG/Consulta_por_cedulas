@@ -1,0 +1,74 @@
+﻿@model List<Consulta_por_cedulas.Models.DatosClientes>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css" rel="stylesheet" />
+    <title>Consulta</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center p-5">
+            <div class="col-md-12">
+                <div class="card bg-light shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="text-center">
+                            Consultas de Clientes
+                        </h4>
+                    </div>
+                    <div class="card-header text-white">
+                        <form action="@Url.Action("Consulta", "Datos")" method="post" class="form-inline d-flex">
+                            <div class="col-sm-3">
+                                <input class="form-control" type="search" placeholder="Buscar por cédula" aria-label="Search" maxlength="10" name="cedula">
+                            </div>
+                            <button type="submit" class="btn btn-light">Buscar</button>
+                        </form>
+                    </div>
+                    
+                    <div class="card-body">
+
+                        <table class="table table-bordered table-striped" style="width:100%">
+                            @if (TempData["Mensaje"] != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @TempData["Mensaje"]
+                                </div>
+                            }
+                            <thead>
+
+                                <tr>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>Empresa</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var Clientes in Model)
+                                {
+                                    <tr>
+                                        <td>@Clientes.ee_nombre</td>
+                                        <td>@Clientes.ee_apellido</td>
+                                        <td>@Clientes.ee_empresa</td>
+                                        <td>@Clientes.ee_estado</td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
