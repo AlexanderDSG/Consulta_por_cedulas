@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Net;
-using System.Security.Cryptography;
 using System.Web.Mvc;
 
 namespace Consulta_por_cedulas.Controllers
