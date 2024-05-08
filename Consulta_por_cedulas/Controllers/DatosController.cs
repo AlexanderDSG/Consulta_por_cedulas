@@ -3,7 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Net;
+using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 
 namespace Consulta_por_cedulas.Controllers
@@ -20,16 +23,45 @@ namespace Consulta_por_cedulas.Controllers
             return View(olista);
         }
 
+        //validar direcciones IP
+        private bool ValidIPAddress(string IP)
+        {
+            if (IPAddress.TryParse(IP, out var address) == false)
+                return false;
 
+            if (address.AddressFamily == AddressFamily.InterNetworkV6)
+            {
+                if (IP.IndexOf("::") > -1)
+                    return true;
+                return false;
+            }
+            else
+            {
+                if (Regex.IsMatch(IP, @"(^0\d|\.0\d)"))
+                    return false;
+                else if (IP.Count(c => c == '.') != 3)
+                    return false;
+                else
+                    return true;
+            }
+        }
         private bool ValidaIP()
         {
-            // obtiene la direccion IP del cliente que realizo la solicitud
+            // Obtiene la dirección IP del cliente que realizó la solicitud
             string ipAddress = Request.UserHostAddress;
 
-            // valida la direccion IP
-            return IPAddress.TryParse(ipAddress, out _);
+            // Verifica si la dirección IP del cliente es válida utilizando ValidIPAddress
+            if (!ValidIPAddress(ipAddress))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+            
         }
-      
 
         [HttpPost]
         public ActionResult Consulta(string cedula)
