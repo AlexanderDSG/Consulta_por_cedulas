@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Views\\Datos\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|solutionrelative:Consulta_por_cedulas\\Views\\Datos\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|d:\\archivos de programa (x86)\\microsoft visual studio\\proyectos\\consulta_por_cedulas\\consulta_por_cedulas\\views\\datos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|solutionrelative:consulta_por_cedulas\\views\\datos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|d:\\archivos de programa (x86)\\microsoft visual studio\\proyectos\\consulta_por_cedulas\\consulta_por_cedulas\\views\\error\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|solutionrelative:consulta_por_cedulas\\views\\error\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|d:\\archivos de programa (x86)\\microsoft visual studio\\proyectos\\consulta_por_cedulas\\consulta_por_cedulas\\models\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|solutionrelative:consulta_por_cedulas\\models\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8562830F-3C09-4F5C-9CC9-C1518F680701}|Consulta_por_cedulas\\Consulta_por_cedulas.csproj|d:\\archivos de programa (x86)\\microsoft visual studio\\proyectos\\consulta_por_cedulas\\consulta_por_cedulas\\controllers\\datoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,8 +26,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Models\\ErrorController.cs",
+              "RelativeDocumentMoniker": "Consulta_por_cedulas\\Models\\ErrorController.cs",
+              "ToolTip": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Models\\ErrorController.cs",
+              "RelativeToolTip": "Consulta_por_cedulas\\Models\\ErrorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T15:22:22.921Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -38,26 +60,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotFound.cshtml",
+              "DocumentMoniker": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Views\\Error\\NotFound.cshtml",
+              "RelativeDocumentMoniker": "Consulta_por_cedulas\\Views\\Error\\NotFound.cshtml",
+              "ToolTip": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Views\\Error\\NotFound.cshtml",
+              "RelativeToolTip": "Consulta_por_cedulas\\Views\\Error\\NotFound.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-14T15:50:36.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Views\\Datos\\Index.cshtml",
               "RelativeDocumentMoniker": "Consulta_por_cedulas\\Views\\Datos\\Index.cshtml",
               "ToolTip": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Views\\Datos\\Index.cshtml",
               "RelativeToolTip": "Consulta_por_cedulas\\Views\\Datos\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-26T00:40:00.093Z",
+              "WhenOpened": "2024-05-14T16:11:40.289Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DatosController.cs",
               "DocumentMoniker": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Controllers\\DatosController.cs",
               "RelativeDocumentMoniker": "Consulta_por_cedulas\\Controllers\\DatosController.cs",
               "ToolTip": "D:\\Archivos de programa (x86)\\Microsoft Visual Studio\\Proyectos\\Consulta_por_cedulas\\Consulta_por_cedulas\\Controllers\\DatosController.cs",
               "RelativeToolTip": "Consulta_por_cedulas\\Controllers\\DatosController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowBgAAAAAAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAA1wGUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T23:52:31.607Z",
               "EditorCaption": ""

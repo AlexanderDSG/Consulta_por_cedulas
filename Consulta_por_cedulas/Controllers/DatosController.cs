@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Consulta_por_cedulas.Controllers
@@ -17,40 +18,76 @@ namespace Consulta_por_cedulas.Controllers
         private static string conexion = ConfigurationManager.ConnectionStrings["ConexionSQL"].ToString();
 
         private static List<DatosClientes> olista = new List<DatosClientes>();
+        
         public ActionResult Index()
-        {
-
+        {                     
+           
             return View(olista);
         }
 
         //validar direcciones IP
         private bool ValidIPAddress(string IP)
         {
-            if (IPAddress.TryParse(IP, out var address) == false)
-                return false;
+            using (SqlConnection oconexion = new SqlConnection(conexion))
+            {
+                
+                string query = "SELECT COUNT(*) FROM ext.tbl_IpAutorizadas WHERE ip_valida = @IPAddress";
+                oconexion.Open();
 
-            if (address.AddressFamily == AddressFamily.InterNetworkV6)
-            {
-                if (IP.IndexOf("::") > -1)
-                    return true;
-                return false;
-            }
-            else
-            {
-                if (Regex.IsMatch(IP, @"(^0\d|\.0\d)"))
-                    return false;
-                else if (IP.Count(c => c == '.') != 3)
-                    return false;
-                else
-                    return true;
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    command.Parameters.AddWithValue("@IPAddress", IP);
+                    int count = (int)command.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
         }
+
+        // Obtiene la ip del cliente
+        public string GetUserIpAddress(bool Lan = false)
+        {
+            string userIPAddress = Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ??
+                                   Request.ServerVariables["REMOTE_ADDR"] ??
+                                   Request.UserHostAddress ?? "";
+
+            if (string.IsNullOrEmpty(userIPAddress) || userIPAddress.Trim() == "::1")
+            {
+                Lan = true;
+                userIPAddress = string.Empty;
+            }
+
+            if (Lan)
+            {
+                if (string.IsNullOrEmpty(userIPAddress))
+                {
+                    // Esto es para obtener la dirección IP local (LAN)
+                    string stringHostName = Dns.GetHostName();
+                    IPHostEntry ipHostEntries = Dns.GetHostEntry(stringHostName);
+
+                    userIPAddress = ipHostEntries.AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork)?.ToString() ??
+                                    ipHostEntries.AddressList.LastOrDefault()?.ToString() ??
+                                    "127.0.0.1";
+                }
+            }
+
+            return userIPAddress;
+        }
+
+
+        //  Verifica la dirección IP
         private bool ValidaIP()
         {
-            // Obtiene la dirección IP del cliente que realizó la solicitud
-            string ipAddress = Request.UserHostAddress;
+            
+            string ipAddress = GetUserIpAddress();
 
-            // Verifica si la dirección IP del cliente es válida utilizando ValidIPAddress
+            // Verifica si la dirección IP del cliente esta en la BDD
             if (!ValidIPAddress(ipAddress))
             {
                 return false;
@@ -60,17 +97,17 @@ namespace Consulta_por_cedulas.Controllers
                 return true;
             }
 
-            
+
         }
 
         [HttpPost]
         public ActionResult Consulta(string cedula)
         {
+
             // verifica si la dirección IP del cliente es valida
             if (!ValidaIP())
             {
-                TempData["Mensaje"] = "Error de Consultas";
-                return RedirectToAction("Index");
+                return RedirectToAction("NotFound", "Error"); ;
             }
 
             if (!string.IsNullOrEmpty(cedula) && cedula.Length <= 10)
