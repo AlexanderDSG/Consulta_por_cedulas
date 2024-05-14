@@ -18,11 +18,20 @@ namespace Consulta_por_cedulas.Controllers
         private static string conexion = ConfigurationManager.ConnectionStrings["ConexionSQL"].ToString();
 
         private static List<DatosClientes> olista = new List<DatosClientes>();
-        
+
         public ActionResult Index()
-        {                     
-           
-            return View(olista);
+        {
+            // Verifica si la direccion IP del cliente es valida
+            if (ValidaIP())
+            {
+               
+                return View(olista);
+            }
+            else
+            {
+            
+                return RedirectToAction("NotFound", "Error");
+            }
         }
 
         //validar direcciones IP
@@ -103,12 +112,7 @@ namespace Consulta_por_cedulas.Controllers
         [HttpPost]
         public ActionResult Consulta(string cedula)
         {
-
-            // verifica si la dirección IP del cliente es valida
-            if (!ValidaIP())
-            {
-                return RedirectToAction("NotFound", "Error"); ;
-            }
+       
 
             if (!string.IsNullOrEmpty(cedula) && cedula.Length <= 10)
             {
