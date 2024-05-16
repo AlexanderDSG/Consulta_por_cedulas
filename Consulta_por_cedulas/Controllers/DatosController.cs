@@ -128,7 +128,6 @@ namespace Consulta_por_cedulas.Controllers
                 catch (Exception ex)
                 {
                     TempData["Mensaje"] = "Ocurrió un error al procesar la solicitud: " + ex.Message;
-                    return RedirectToAction("Index");
                 }
             }
 
