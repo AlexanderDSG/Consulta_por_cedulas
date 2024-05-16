@@ -25,11 +25,7 @@ namespace Consulta_por_cedulas.Controllers
             if (!ValidaIP())
             {              
                 return RedirectToAction("NotFound", "Error");
-            }
-
-            string userIPAddress = GetUserIpAddress();
-
-            ViewBag.UserIPAddress = userIPAddress;
+            }         
 
             return View(olista);           
             
