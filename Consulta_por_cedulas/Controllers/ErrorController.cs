@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,9 +12,9 @@ namespace Consulta_por_cedulas.Controllers
     {
         // GET: Error
         public ActionResult NotFound()
-        {
-            TempData["Mensaje"] = "No tiene autorización para acceder a esta página.";
+        {                
             return View();
-        }
+        }      
+
     }
 }

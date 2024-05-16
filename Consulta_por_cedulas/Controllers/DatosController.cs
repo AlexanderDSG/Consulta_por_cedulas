@@ -19,14 +19,18 @@ namespace Consulta_por_cedulas.Controllers
         private static List<DatosClientes> olista = new List<DatosClientes>();
 
         public ActionResult Index()
-        { 
+        {
+           
             // Verifica si la direccion IP del cliente es valida
             if (!ValidaIP())
-            {
-               
+            {              
                 return RedirectToAction("NotFound", "Error");
             }
-            
+
+            string userIPAddress = GetUserIpAddress();
+
+            ViewBag.UserIPAddress = userIPAddress;
+
             return View(olista);           
             
         }
