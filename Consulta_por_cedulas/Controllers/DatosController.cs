@@ -85,7 +85,7 @@ namespace Consulta_por_cedulas.Controllers
         [HttpPost]
         public ActionResult Consulta(string cedula)
         {
-            if (!string.IsNullOrEmpty(cedula) && cedula.Length <= 10)
+            if (!string.IsNullOrEmpty(cedula) && cedula.Length <= 15)
             {
                 string query = "SELECT ee_nombre, ee_apellido,ee_empresa, ee_estado FROM ext.tbl_EmpresasExternas WHERE ee_cedula = @Cedula";
                 List<DatosClientes> contactosFiltrados = new List<DatosClientes>();
