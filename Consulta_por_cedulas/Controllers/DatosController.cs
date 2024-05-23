@@ -23,8 +23,8 @@ namespace Consulta_por_cedulas.Controllers
            
             // Verifica si la direccion IP del cliente es valida
             if (!ValidaIP())
-            {              
-                return RedirectToAction("NotFound", "Error");
+            {
+                return Redirect("/Error/NotFound");
             }         
 
             return View(olista);           
