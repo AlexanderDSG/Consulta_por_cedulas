@@ -12,17 +12,16 @@ namespace Consulta_por_cedulas.Controllers
 {
     public class ErrorController : Controller
     {
+
         // GET: Error
         public ActionResult NotFound()
         {
+
             string ipAddress = GetUserIpAddress();
 
-            var model = new DatosClientes
-            {
-                ip_valida = ipAddress
-            };
+            TempData["Mensaje"] = ipAddress;
 
-            return View(model);
+            return View();
         }
 
         public string GetUserIpAddress(bool Lan = false)

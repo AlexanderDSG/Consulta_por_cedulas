@@ -12,7 +12,6 @@ namespace Consulta_por_cedulas.Models
         public string ee_apellido { get; set; }
         public string ee_empresa { get; set; }
         public string ee_estado { get; set; }
-        public string ip_valida { get; set; }
 
 
     }

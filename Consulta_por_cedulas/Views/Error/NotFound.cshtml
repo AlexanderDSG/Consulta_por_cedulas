@@ -1,5 +1,4 @@
-﻿@model Consulta_por_cedulas.Models.DatosClientes
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -22,7 +21,7 @@
     <div class="container">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">¡Error!</h4>
-            <p>La dirección IP <strong>@Model.ip_valida</strong> no tiene autorización para acceder a este recurso.</p>
+            <p>La dirección IP <strong>@TempData["Mensaje"]</strong> no tiene autorización para acceder a este recurso.</p>
             <hr>
             <p class="mb-0">Por favor, contacta al administrador para obtener ayuda.</p>
         </div>

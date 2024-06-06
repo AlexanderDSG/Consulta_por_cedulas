@@ -20,17 +20,17 @@ namespace Consulta_por_cedulas.Controllers
 
         public ActionResult Index()
         {
-           
+           /*
             // Verifica si la direccion IP del cliente es valida
             if (!ValidaIP())
             {
-                return Redirect("/Error/NotFound");
+                return RedirectToAction("Error", "NotFound");
             }         
-
+           */
             return View(olista);           
             
         }
-
+        /*
         //validar direcciones IP
         private bool ValidIPAddress(string IP)
         {
@@ -81,7 +81,7 @@ namespace Consulta_por_cedulas.Controllers
             string ipAddress = GetUserIpAddress();
             return ValidIPAddress(ipAddress);
         }
-
+        */
         [HttpPost]
         public ActionResult Consulta(string cedula)
         {
